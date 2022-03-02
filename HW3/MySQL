@@ -1,0 +1,33 @@
+use ids11db; 
+show tables;
+
+-- delete all rows with population = 0;
+SET SQL_SAFE_UPDATES = 0;
+delete from Life_Expectancy where population = 0;
+
+-- Step 2: Display total count of countries after data cleaning.
+select count(country)
+from Life_Expectancy;
+
+-- Step 3 List of countries with the highest and lowest average mortality rates (years 2010-2015)
+select min(Adult_Mortality), MAX(Adult_Mortality)
+from Life_Expectancy
+where Year < 2015;
+-- Step 4 List of countries with the highest and lowest average population (years 2010-2015)
+select min(population), MAX(population)
+from Life_Expectancy
+where Year < 2015;
+
+-- List of countries with the highest and lowest average GDP (years 2010-2015)
+select min(GDP), MAX(GDP)
+from Life_Expectancy
+where Year < 2015;
+-- schooling year
+select min(schooling), MAX(schooling)
+from Life_Expectancy
+where Year < 2015;
+
+-- ALcohol
+select min(Alcohol),Country , MAX(Alcohol), country
+from Life_Expectancy
+where Year < 2015;
